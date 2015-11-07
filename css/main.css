@@ -1,0 +1,120 @@
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+  padding: 0vh;
+  margin: 0vh;
+}
+
+html
+{
+  height: 100vh;
+  
+  background: linear-gradient(#888, #666);
+}
+
+body {  
+  min-height: 100vh;
+  text-align: center;
+}
+
+h1 {
+  font-size: 10vh;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10vh;
+}
+
+.inputTask input[type=text] {
+  width: 80vw;
+  max-width: 80vh;
+  height: 8vh;
+  
+  padding: 2vh;
+  margin: 5vh;
+  
+  font-size: 3.5vh;
+  font-weight: bold;
+  
+  border-style: solid;
+  border-width: 0.2vh;
+  border-color: #aaa;
+  border-radius: 1vh;
+  box-shadow: 0vh 1vh 2vh #666;
+  
+  background: linear-gradient(#fff, #eee);
+}
+
+.taskList {
+  text-align: center; /* Technique chelou pour centrer le ul */
+}
+
+.taskList ul {
+  display: inline-block; /* Technique chelou pour centrer le ul */
+  list-style-type: none; /* Enleve les puces de liste */
+  
+  /* ombre de la liste */
+  border-style: solid;
+  border-width: 0vh;
+  border-radius: 1vh;
+  box-shadow: 0vh 1vh 2vh #666;
+}
+
+.taskList li {
+  width: 80vw;
+  max-width: 80vh;
+  height: 10vh;
+  
+  padding: 2.8vh;
+  
+  font-size: 3.5vh;
+  font-weight: bold;
+  
+  border-style: solid;
+  border-width: 0.2vh;
+  border-color: #aaa;
+  border-radius: 1vh;
+  
+  background: linear-gradient(#eee, #ccc);
+  
+  text-shadow: 0vh 0.3vh 0vh #fff;
+  
+  transition: opacity .2s ease, margin-top .2s ease; /* les changements d'opacité et de marge supérieure sont faits de façon transitoire */
+}
+
+.taskList li.ng-leave-active, /* Etat supplementaire de angular-animate pour regler le style de l'élément li après sa destruction */
+.taskList li.ng-enter  /* Etat supplementaire de angular-animate pour regler le style de l'élément li avant sa création */
+{
+    margin-top: -8vh;
+    opacity: 0;
+}
+
+.emptyList {
+  color: #aaa;
+  font-style: italic;
+  
+  background: linear-gradient(#ddd, #ddd);
+}
+
+.tick, .delete { /* les icônes sont grises au départ*/
+  color: #aaa;  
+}
+
+.tick:hover, .delete:hover { /* les icônes changent de couleur en passant la souris dessus */
+  color: black;
+}
+
+.tick {
+  float: left;
+}
+
+.delete {
+  float: right;
+}
+
+.done {
+  color: #7a7;
+}
+
+li.done {
+  text-decoration: line-through;
+}

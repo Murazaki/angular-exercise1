@@ -4,15 +4,30 @@
     <title>Angular Exercise 1</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <script src="lib/angular.min.js"></script>
+    <!-- Dépôts CDN de Angular -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <!-- j'ai ajouté angular animate, pour pouvoir faire des animations CSS simples -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-animate.min.js"></script>
     <script src="app/app.js"></script>
   </head>
   <body ng-app="angular-exercise1" ng-controller="AppCtrl">
-    <form ng-submit="addTask()">
+    <h1>Todo List</h1>
+    <form  class="inputTask" ng-submit="addTask()">
       <input type="text" ng-model="newTask" placeholder="Entrez votre tâche..." />
     </form>
-    <ul>
-      <li ng-repeat="task in tasklist"><i class="fa fa-check-square-o"></i> {{task.name}} <i class="fa fa-times"></i></li>
-    </ul>
+    <div class="taskList">
+      <ul>
+        <!-- La directive ng-if affiche l'élément emptyList si la liste est vide (taskList.length == 0) -->
+        <li ng-if="tasklist.length == 0" class="emptyList">
+          La liste est vide
+        </li>
+        <!-- La directive ng-class ajoute la classe demandée (ici "done") si la condition est vérifiée (ici task.done == true) -->
+        <li ng-repeat="task in tasklist" ng-class="{done:task.done}">
+          <i ng-class="{done:task.done}" class="fa fa-check-square-o tick" ng-click="markAsDone($index)"></i>
+           {{task.name}} 
+          <i class="fa fa-times delete" ng-click="removeTask($index)"></i>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
